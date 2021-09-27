@@ -6,10 +6,12 @@ import {
 	Link,
 	LogoWrapper,
 	Text,
-	Wrapper
+	Wrapper,
+	activeStyle
 } from './style'
 import logo from '../../assets/imgs/logo.png'
 import { sidebar } from '../../utils/sidebar'
+import { ReactComponent as Chiqish } from '../../assets/icons/logout.svg'
 
 export const Sidebar = () => {
 	return (
@@ -25,14 +27,20 @@ export const Sidebar = () => {
 			<Wrapper>
 				{sidebar.map(({ id, path, Component, Icon, Title, hiddin }) => {
 					return (
-						<Item>
-							<Link key={id} to={path}>
+						<Item key={id}>
+							<Link exact activeStyle={activeStyle} key={id} to={path}>
 								<Icon className='icon' />
 								{Title}
 							</Link>
 						</Item>
 					)
 				})}
+			</Wrapper>
+			<Wrapper chiqish>
+				<IconWrapper>
+					<Chiqish />
+				</IconWrapper>
+				<IconWrapper.Title>Chiqish</IconWrapper.Title>
 			</Wrapper>
 		</Container>
 	)

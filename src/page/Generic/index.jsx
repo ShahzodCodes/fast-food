@@ -1,6 +1,7 @@
 import React from 'react'
 
-export const Generic = () => {
-	return <h1>Generic path:</h1>
+export const Generic = ({ location }) => {
+	// console.log(props, 'Generic');
+	return <h1>Coming soon{location.pathname} </h1>
 }
 export default Generic

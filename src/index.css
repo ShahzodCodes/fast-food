@@ -5,6 +5,11 @@
 	font-family: SFProDisplay;
 }
 
+*::selection {
+	background-color: transparent;
+	/* color: transparent; */
+}
+
 @font-face {
 	font-family: SFProDisplay;
 	src: url('./utils/cssFonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
