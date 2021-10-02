@@ -17,8 +17,10 @@ const GetOrder = ({ order }) => {
 
 export const Container = styled.div`
 	display: flex;
+	position: sticky;
+	z-index: 999;
+	top: 0;
 	@media (max-width: 1530px) {
-		/* order: ${GetOrder}; */
 		flex-direction: column;
 	}
 `

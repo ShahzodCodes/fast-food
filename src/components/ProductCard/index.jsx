@@ -1,39 +1,61 @@
-import React, { useState } from 'react'
-import { Container, Wrapper, Info, IconWrapper, Timer } from './style'
+import React from 'react'
+import Done from '../Generic/Done'
+import Cancel from '../Generic/Cancel'
+import { Container, Wrapper, Info, IconWrapper, Timer, Footer } from './style'
 
-export const ProductCard = () => {
+export const ProductCard = ({ value }) => {
+	console.log(value.time.getHours())
 	return (
 		<Container>
 			<Wrapper>
-				<Info.OrderID>12345</Info.OrderID>
+				<Info.OrderID> {value.orderId} </Info.OrderID>
 				<IconWrapper>
 					<Info.Save />
 				</IconWrapper>
 				<Timer>
 					<Info.Clock />
-					<Info.Text>12:45</Info.Text>
+					<Info.Text>
+						{`${value.time.getHours()} : ${value.time.getMinutes()}`}
+					</Info.Text>
 				</Timer>
 			</Wrapper>
 			<Wrapper flex>
 				<Info>
 					<Info.User />
 					<div>
-						<Info.Name>Shahzod Yoqubov</Info.Name>
-						<Info.Number>+998 (99) 123 45 67</Info.Number>
+						<Info.Name>{value.user.name}</Info.Name>
+						<Info.Number>{value.user.phone}</Info.Number>
 					</div>
 				</Info>
-				<Info>
+				<Info payme>
 					<div>
-						<Info.Total>Umumiy summa</Info.Total>
-						<Info.Price>40 000 UZS</Info.Price>
+						<Info.Total top>Umumiy summa</Info.Total>
+						<Info.Price>{value.total}</Info.Price>
 					</div>
-					<Info end>
+					<Info end={'true'}>
 						<Info.PaymeIcon />
 						<Info.Payme>Payme</Info.Payme>
 					</Info>
 				</Info>
 			</Wrapper>
-			<Wrapper></Wrapper>
+			<Wrapper flex last>
+				<Footer>
+					<div>
+						<Info.Total>Operator:</Info.Total>
+						<Info.Name>{value.operator.name}</Info.Name>
+					</div>
+					<Cancel />
+				</Footer>
+				<Footer>
+					<div>
+						<Info.Total>Filial:</Info.Total>
+						<Info.Name>
+							{value.filial.title} <br /> {value.filial.location}
+						</Info.Name>
+					</div>
+					<Done />
+				</Footer>
+			</Wrapper>
 		</Container>
 	)
 }

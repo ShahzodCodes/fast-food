@@ -5,16 +5,18 @@ import { ReactComponent as clock } from '../../assets/icons/clock.svg'
 import { ReactComponent as user } from '../../assets/icons/user.svg'
 
 export const Container = styled.div`
-	/* width: 234px; */
 	width: 100%;
-	height: 375px;
+	min-height: 375px;
 	padding: 0 16px 18px 16px;
 	display: flex;
 	flex-direction: column;
 	background: #ffffff;
 	box-shadow: 0px 2px 2px rgba(174, 176, 181, 0.314986);
 	border-radius: 6px;
+	transition: all 0.3s;
+	margin-bottom: 10px;
 	:hover {
+		/* transform: scale(1.01); */
 		box-shadow: 0px 20px 25px rgba(176, 177, 181, 0.432802);
 		border-radius: 6px;
 	}
@@ -22,15 +24,16 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: ${({ flex }) => flex && 'column'};
+	/* width: 234px; */
 	width: 100%;
-	padding-bottom: 20px;
 	padding-top: 20px;
-	border-bottom: 1px solid #d9d7d7;
+	padding-bottom: ${({ last }) => !last && '20px'};
+	border-bottom: ${({ last }) => !last && '1px solid #d9d7d7'};
 `
 export const Info = styled.div`
 	display: flex;
+	align-items: ${({ payme }) => payme && 'center'};
 	margin-left: ${({ end }) => end && 'auto'};
-	align-items: center;
 `
 Info.OrderID = styled.div`
 	margin-right: 20px;
@@ -111,6 +114,7 @@ Info.Total = styled.div`
 	letter-spacing: 0.366667px;
 	color: #8d9ba8;
 	margin-bottom: 5px;
+	margin-top: ${({ top }) => top && '20px'};
 `
 Info.Price = styled.div`
 	font-family: SFProDisplay;
@@ -133,4 +137,11 @@ Info.Payme = styled.div`
 	letter-spacing: 0.466667px;
 	color: #2d3a45;
 	margin-left: 8px;
+`
+export const Footer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 15px;
 `

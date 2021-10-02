@@ -6,9 +6,11 @@ export const Container = styled.div`
 	flex-direction: column;
 	width: 300px;
 	min-width: 300px;
-	height: 100vh;
+	height: 100%;
 	padding: 28px 0 40px 0;
 	background-color: white;
+	position: sticky;
+	top: 0;
 `
 
 export const LogoWrapper = styled.div`
@@ -46,7 +48,8 @@ export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: ${({ chiqish }) => (chiqish ? 'row' : 'column')};
 	align-items: ${({ chiqish }) => chiqish && 'center'};
-	margin-top: ${({ chiqish }) => chiqish && 'auto'};
+	margin-top: ${({ chiqish }) => chiqish && '100px'};
+	/* margin-top: ${({ chiqish }) => chiqish && 'auto'}; */
 	cursor: ${({ chiqish }) => chiqish && 'pointer'};
 `
 export const Item = styled.div`
