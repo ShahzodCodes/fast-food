@@ -8,7 +8,8 @@ import {
 	Tab,
 	Title,
 	Toggle,
-	Wrapper
+	Wrapper,
+	ToggleClone
 } from './style'
 
 export const Navbar = () => {
@@ -17,11 +18,23 @@ export const Navbar = () => {
 
 	return (
 		<Container>
-			<Wrapper align>
+			<Wrapper align order='first'>
 				<Plus />
 				<Title>Yangi buyurtma qo’shish</Title>
+				<ToggleClone>
+					<IconsWrapper
+						active={isTabActive}
+						onClick={() => setIsTabActive(true)}>
+						<MenuV />
+					</IconsWrapper>
+					<IconsWrapper
+						active={!isTabActive}
+						onClick={() => setIsTabActive(false)}>
+						<MenuH />
+					</IconsWrapper>
+				</ToggleClone>
 			</Wrapper>
-			<Wrapper>
+			<Wrapper order='second'>
 				<Tab>
 					<Tab.Item
 						onClick={() => setIsActive('Yangi')}
@@ -45,7 +58,7 @@ export const Navbar = () => {
 					</Tab.Item>
 				</Tab>
 			</Wrapper>
-			<Wrapper align>
+			<Wrapper align order='third'>
 				<Toggle>
 					<IconsWrapper
 						active={isTabActive}

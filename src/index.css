@@ -5,8 +5,12 @@
 	font-family: SFProDisplay;
 }
 
+body {
+	background-color: #edeff3;
+}
+
 *::selection {
-	background-color: transparent;
+	/* background-color: transparent; */
 	/* color: transparent; */
 }
 

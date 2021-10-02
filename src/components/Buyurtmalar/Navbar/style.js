@@ -2,8 +2,25 @@ import styled from 'styled-components'
 import { ReactComponent as plus } from '../../../assets/icons/plus.svg'
 import { ReactComponent as menuV } from '../../../assets/icons/menuV.svg'
 
+const GetOrder = ({ order }) => {
+	switch (order) {
+		case 'first':
+			return 1
+		case 'second':
+			return 3
+		case 'third':
+			return 2
+		default:
+			return 1
+	}
+}
+
 export const Container = styled.div`
 	display: flex;
+	@media (max-width: 1530px) {
+		/* order: ${GetOrder}; */
+		flex-direction: column;
+	}
 `
 export const Wrapper = styled.div`
 	display: flex;
@@ -13,6 +30,12 @@ export const Wrapper = styled.div`
 	align-items: center;
 	width: ${({ align }) => (align ? '300px' : '100%')};
 	border: 1px solid #e5e5e5;
+	@media (max-width: 1530px) {
+		order: ${GetOrder};
+		flex: 1;
+		width: 100%;
+		display: ${({ order }) => order === 'third' && 'none'};
+	}
 `
 export const Plus = styled(plus)`
 	padding: 11px;
@@ -72,6 +95,13 @@ export const Toggle = styled.div`
 	padding: 6px;
 	border-radius: 24px;
 	background: #edeff3;
+`
+export const ToggleClone = styled(Toggle)`
+	display: none;
+	@media (max-width: 1530px) {
+		display: flex;
+		margin-left: auto;
+	}
 `
 
 export const MenuV = styled(menuV)`
