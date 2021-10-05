@@ -12,7 +12,7 @@ import {
 	ToggleClone
 } from './style'
 
-export const Navbar = () => {
+export const Navbar = props => {
 	const [isActive, setIsActive] = useState('Yangi')
 	const [isTabActive, setIsTabActive] = useState(true)
 
@@ -24,36 +24,54 @@ export const Navbar = () => {
 				<ToggleClone>
 					<IconsWrapper
 						active={isTabActive}
-						onClick={() => setIsTabActive(true)}>
+						onClick={() => {
+							setIsTabActive(true)
+							props.onClick(true)
+						}}>
 						<MenuV />
 					</IconsWrapper>
 					<IconsWrapper
 						active={!isTabActive}
-						onClick={() => setIsTabActive(false)}>
+						onClick={() => {
+							setIsTabActive(false)
+							props.onClick(false)
+						}}>
 						<MenuH />
 					</IconsWrapper>
 				</ToggleClone>
 			</Wrapper>
 			<Wrapper order='second'>
-				<Tab>
+				<Tab active={isTabActive}>
 					<Tab.Item
-						onClick={() => setIsActive('Yangi')}
-						active={isActive === 'Yangi'}>
+						onClick={() => {
+							isTabActive && setIsActive('Yangi')
+						}}
+						active={isActive === 'Yangi'}
+						isActive={isTabActive}>
 						Yangi
 					</Tab.Item>
 					<Tab.Item
-						onClick={() => setIsActive('Qabul qilingan')}
-						active={isActive === 'Qabul qilingan'}>
+						onClick={() => {
+							isTabActive && setIsActive('Qabul qilingan')
+						}}
+						active={isActive === 'Qabul qilingan'}
+						isActive={isTabActive}>
 						Qabul qilingan
 					</Tab.Item>
 					<Tab.Item
-						onClick={() => setIsActive('Jo’natilgan')}
-						active={isActive === 'Jo’natilgan'}>
+						onClick={() => {
+							isTabActive && setIsActive('Jo’natilgan')
+						}}
+						active={isActive === 'Jo’natilgan'}
+						isActive={isTabActive}>
 						Jo’natilgan
 					</Tab.Item>
 					<Tab.Item
-						onClick={() => setIsActive('Yopilgan')}
-						active={isActive === 'Yopilgan'}>
+						onClick={() => {
+							isTabActive && setIsActive('Yopilgan')
+						}}
+						active={isActive === 'Yopilgan'}
+						isActive={isTabActive}>
 						Yopilgan
 					</Tab.Item>
 				</Tab>
@@ -62,12 +80,18 @@ export const Navbar = () => {
 				<Toggle>
 					<IconsWrapper
 						active={isTabActive}
-						onClick={() => setIsTabActive(true)}>
+						onClick={() => {
+							setIsTabActive(true)
+							props.onClick(true)
+						}}>
 						<MenuV />
 					</IconsWrapper>
 					<IconsWrapper
 						active={!isTabActive}
-						onClick={() => setIsTabActive(false)}>
+						onClick={() => {
+							setIsTabActive(false)
+							props.onClick(false)
+						}}>
 						<MenuH />
 					</IconsWrapper>
 				</Toggle>

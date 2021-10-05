@@ -48,8 +48,8 @@ export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: ${({ chiqish }) => (chiqish ? 'row' : 'column')};
 	align-items: ${({ chiqish }) => chiqish && 'center'};
-	margin-top: ${({ chiqish }) => chiqish && '100px'};
-	/* margin-top: ${({ chiqish }) => chiqish && 'auto'}; */
+	/* margin-top: ${({ chiqish }) => chiqish && '100px'}; */
+	margin-top: ${({ chiqish }) => chiqish && 'auto'};
 	cursor: ${({ chiqish }) => chiqish && 'pointer'};
 `
 export const Item = styled.div`

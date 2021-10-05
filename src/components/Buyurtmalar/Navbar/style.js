@@ -67,6 +67,8 @@ export const Tab = styled.div`
 	padding: 6px;
 	justify-content: space-around;
 	align-items: center;
+	opacity: ${({ active }) => !active && '0.4'};
+	cursor: ${({ isActive }) => !isActive && 'not-allowed'};
 `
 Tab.Item = styled.div`
 	cursor: pointer;
@@ -84,9 +86,8 @@ Tab.Item = styled.div`
 	background-color: ${({ active }) => active && 'white'};
 	box-shadow: ${({ active }) =>
 		active && '0px 2px 2px rgba(174, 176, 181, 0.314986)'};
+	cursor: ${({ isActive }) => !isActive && 'not-allowed'};
 `
-
-// export const Container = styled.div``
 
 export const Toggle = styled.div`
 	display: flex;
