@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 // import { card } from '../../../mock/card'
 import ProductCard from '../../ProductCard'
 import { Container, Wrapper } from './style'
